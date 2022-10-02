@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+</head>
+<body>
+<br>
+{{template "header"}}
+<br>
+<form action="/editValue" method="POST">
+<input type="hidden" id="bookId" name="bookId" value="{{.BookId}}">
+<input type="text" id="input_year" name="input_year" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{4}" required  style="width:40px;" value="{{.Year}}" readonly> year</input> 
+<br>
+<input type="text" id="input_month" name="input_month" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{2}" required style="width:20px;" value="{{.Month}}" readonly> month</input>
+<br>
+<input type="text" id="input_day" name="input_day" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{2}" required style="width:20px;" value="{{.Day}}" readonly> day</input>
+<br>
+<input type="number" id="input_income" name="input_income" min="0" max="9999999999999" value="{{.Income}}" title="０以上の金額を入力してください" required> income</input>
+<br>
+<input type="number" id="input_payment" name="input_payment" min="0" max="9999999999999" value="{{.Payment}}" title="０以上の金額を入力してください" required> payment</input>
+<br>
+<input type="number" id="input_first" name="input_first" min="0" max="99999999999999" value="{{.First_income}}" title="０以上の金額を入力してください" required> first_income</input>
+<br>
+<input type="text" id="input_comment" name="input_comment" pattern=".{0,30}" value="{{.Comment}}" title="全角15桁、半角30桁以下を入力して下さい"> comment</input>
+<br>
+<input type="submit" value="edit">
+<input type="submit" formaction="/valueDelete" value="delete">
+</form>
+<br>
+</body>
+</html>

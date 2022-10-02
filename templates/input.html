@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+</head>
+<body>
+<br>
+{{template "header"}}
+<br>
+<form action="/inputValue" method="POST">
+<input type="text" id="input_year" name="input_year"  style="width:40px;"value="{{.Iyear}}" readonly> year</input> 
+<br>
+<input type="text" id="input_month" name="input_month"  style="width:20px;"value="{{.Imonth}}" readonly> month</input>
+<br>
+<input type="text" id="input_day" name="input_day" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{2}" required style="width:20px;" title="dd形式で入力してください"> day</input>
+<br>
+<select name="input_kind" id="input_kind" title="リスト内の項目を選択してください" required>
+    <option value="">--Please choose a kind--</option>
+    <option value="income">Income</option>
+    <option value="payment">Payment</option>
+</select>
+kind
+<br>
+<input type="number" id="input_amount" name="input_amount" min="0" max="9999999999999" required title="０以上の金額を入力してください"> amount</input>
+<br>
+<input type="text" id="input_comment" name="input_comment" pattern=".{0,30}" title="全角15桁、半角30桁以下を入力して下さい"> comment</input>
+<br>
+<input type="submit" value="Submit">
+</form>
+<br>
+</body>
+</html>
